@@ -1,6 +1,7 @@
-
+import java.util.Scanner;
 
 public class Solution {
+    private static Scanner scan = new Scanner(System.in);
     public static void bubbleSort(int[] arr){
     	//Your code goes here
         int n=arr.length;
@@ -12,6 +13,17 @@ public class Solution {
                     arr[j+1]=temp;
                 }
             }
+        }
+    }
+    public static void main(String args[]){
+        int n = scan.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scan.nextInt();
+        }
+        bubbleSort(arr);
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i]+" ");
         }
     }  
 

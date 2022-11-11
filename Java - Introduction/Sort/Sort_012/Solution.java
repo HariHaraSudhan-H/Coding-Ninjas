@@ -1,5 +1,6 @@
+import java.util.Scanner;
 public class Solution {
-
+    static Scanner scan = new Scanner(System.in);
     public static void sort012(int[] arr){
     	//Your code goes here
         int i=0,nZ=0,nT=arr.length-1;
@@ -20,5 +21,16 @@ public class Solution {
                 i++;
         }
     }
+    public static void main(String args[]){
+        int n = scan.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scan.nextInt();
+        }
+        sort012(arr);
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i]+" ");
+        }
+    } 
 
-}
+}   
