@@ -46,6 +46,13 @@ public class isBSTUse {
         }
         return root;
     }
+    public static boolean isBSTBetter(binaryTreeNode<Integer> root,int min,int max){
+        if(root==null)
+            return true;
+        if(root.data>=max || root.data<=min)
+            return false;
+        return isBSTBetter(root.left,min,root.data-1)&&isBSTBetter(root.right, root.data, max);
+    }
     public static isBSTreturn isBST(binaryTreeNode<Integer> root){
         if(root == null)
             return new isBSTreturn(true,Integer.MIN_VALUE,Integer.MAX_VALUE);
@@ -63,11 +70,11 @@ public class isBSTUse {
         }
     }
     public static void main(String[] args) {
-        binaryTreeNode<Integer> root = new binaryTreeNode<>(-2147483648);
-        binaryTreeNode<Integer> leftroot = new binaryTreeNode<>(2147483647);
-        //binaryTreeNode<Integer> rightroot = new binaryTreeNode<>(3);
-        root.left = leftroot;
-        root.right = null;
+        binaryTreeNode<Integer> root = new binaryTreeNode<>(Integer.MAX_VALUE);
+        // binaryTreeNode<Integer> leftroot = new binaryTreeNode<>(1);
+        // binaryTreeNode<Integer> rightroot = new binaryTreeNode<>(3);
+        // root.left = leftroot;
+        // root.right = rightroot;
 
         //binaryTreeNode<Integer> rightNode = new binaryTreeNode<>(4);
 
@@ -79,6 +86,6 @@ public class isBSTUse {
         //binaryTreeNode<Integer> root=new binaryTreeNode<Integer>(-1);
         //root = takeTreeInputLevel(root);
         printTreeLevel(root);
-        System.out.println(isBST(root).isBST);
+        System.out.println(isBSTBetter(root,Integer.MAX_VALUE,Integer.MIN_VALUE));
     }
 }
