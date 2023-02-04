@@ -36,12 +36,12 @@ public class KnapSack {
                     output[i][j]=output[i+1][j];
 			}
 		}
-        for(int i=0;i<output.length;i++){
-			for(int j=0;j<output[0].length;j++){
-				System.out.print( output[i][j]+" ");
-			}
-            System.out.println();
-		}
+        // for(int i=0;i<output.length;i++){
+		// 	for(int j=0;j<output[0].length;j++){
+		// 		System.out.print( output[i][j]+" ");
+		// 	}
+        //     System.out.println();
+		// }
 		return output[0][maxWeight];
 	}
     public static void main(String[] args) {
