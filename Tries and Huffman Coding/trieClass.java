@@ -1,5 +1,5 @@
 public class trieClass {
-    private trieNode root;
+    public trieNode root;
     
     public trieClass() {
         root = new trieNode('\0');
