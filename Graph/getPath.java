@@ -26,7 +26,32 @@ public class getPath {
 		}
 		return output;
 	}
-
+    public static ArrayList<Integer> getPathBFS(int[][] AdjacencyMatrix, int currentIndex,int end,boolean[] visited) {
+        Queue<Integer> pending = new LinkedList<>();
+        HashMap<Integer,Integer> parent = new HashMap<>();
+        ArrayList<Integer> output = new ArrayList<>();
+		pending.add(currentIndex);
+        parent.put(currentIndex,-1);
+		visited[currentIndex] = true;
+		while (!pending.isEmpty()) {
+			currentIndex = pending.poll();
+			if(currentIndex==end){
+				while(currentIndex!=-1){
+                    output.add(currentIndex);
+                    currentIndex=parent.get(currentIndex);
+                }
+                return output;
+			}
+			for (int i = 0; i < AdjacencyMatrix.length; i++) {
+				if (!visited[i] && AdjacencyMatrix[currentIndex][i] == 1) {
+					pending.add(i);
+                    parent.put(i,currentIndex);
+					visited[i] = true;
+				}
+			}
+		}
+		return output;
+	}
 	public static void main(String[] args) {
         
         /* Write Your Code Here
