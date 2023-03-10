@@ -1,0 +1,60 @@
+body{
+    margin: 0px;
+}
+
+/* ....Body Header.... */
+
+#body_header{
+    position: relative;
+    height: 65vh;
+    color: white;
+    background-image: url(https://ninjasfiles.s3.amazonaws.com/asset_0000000000000020_1549743985_macbook_mouse.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ....Horizonatal Liat.... */
+
+.horizontal_list{
+    margin-top: 0px;
+    list-style: none;
+    padding-left: 0px;
+}
+.navbar{
+    padding-top: 3vh;
+}
+.horizontal_list li{
+    display: inline-block;
+    margin: 0px 10px;
+}
+.navbar li:hover{
+    color: lightgray;
+    border-bottom: 1px solid white;
+    font-weight: bolder;
+}
+.horizontal_list a{
+    color: white;
+    text-decoration: none;
+}
+.text_center{
+    text-align: center;
+}
+
+/* .....Name & Social Apps..... */
+
+#Name{
+    font-size: 3rem;
+    font-weight: bolder;
+    letter-spacing: 7.5px;
+    margin-top: 20vh;
+}
+.social_apps img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+}
+.social_apps img:hover{
+    box-shadow: 0px 0px 4px 6px rgba(230,196,196,0.3);
+}
