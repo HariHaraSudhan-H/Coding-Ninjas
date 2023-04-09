@@ -36,7 +36,7 @@ function evaluate(value) {
             display.innerText += value;
         }
     }
-    else if (Number.isInteger(Number.parseInt(value))) {
+    else if (Number.isInteger(Number(value))) {
         if (ans) {
             display.innerText = value
             ans = false;
