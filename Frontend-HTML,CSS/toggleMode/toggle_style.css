@@ -1,0 +1,60 @@
+/* .switch{
+    position: relative;
+    left: 45%;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+}
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    background-color: white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+.slider::before{
+    content: "";
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: black;
+    position: absolute;
+    left: 1px;
+    top: 0.5px;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: black;
+  } */
+
+.slider{
+    width: 84px;
+    height: 36px;
+    border-radius: 20px;
+    border: 2px solid black;
+    position: relative;
+    left: 45%;
+}
+.switch{
+    width: 36px;
+    height: 36px;
+    background-color: black ;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+}
+h1{
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
