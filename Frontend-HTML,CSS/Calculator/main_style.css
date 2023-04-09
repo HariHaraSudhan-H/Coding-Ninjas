@@ -6,6 +6,10 @@
     box-sizing: border-box;
     width: 280px;
 }
+h3{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .display{
     /* border: 1px solid white; */
     height: 3rem;
@@ -17,6 +21,9 @@
     align-items: center;
     justify-content: flex-end;
     padding: 0px 10px;
+}
+input[textarea]{
+    background-image: inherit;
 }
 .row{
     display: flex;
