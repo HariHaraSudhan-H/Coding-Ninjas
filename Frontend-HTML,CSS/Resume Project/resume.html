@@ -15,41 +15,41 @@
                 <div class="bars">
                     <i class="fas fa-bars"></i>
                 </div>
-                <div class="dropdown-list nav-menu">
+                <div class="dropdown-list nav-list nav-menu">
                     <ul class="no-list-style">
                         <li>
-                            <a href="#"> Home </a>
+                            <a href="#" class="nav-item"> Home </a>
                         </li>
                         <li>
-                            <a href="#about"> About </a>
+                            <a href="#about" class="nav-item"> About </a>
                         </li>
                         <li>
-                            <a href="#skills"> Skills </a>
+                            <a href="#skills" class="nav-item"> Skills </a>
                         </li>
                         <li>
-                            <a href="#experience">Experience</a>
+                            <a href="#experience" class="nav-item">Experience</a>
                         </li>
                         <li>
-                            <a href="#education">Education</a>
+                            <a href="#education" class="nav-item">Education</a>
                         </li>
                         <li>
-                            <a href="#portfolio">Portfolio</a>
+                            <a href="#portfolio" class="nav-item">Portfolio</a>
                         </li>
                         <li>
-                            <a href="#contact">Contact</a>
+                            <a href="#contact" class="nav-item">Contact</a>
                         </li>
                     </ul>
                 </div>
 
             </div>
-            <ul class="horizontal-list navbar text_center">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="horizontal-list navbar text_center nav-menu">
+                <li><a href="#" id="homePath">Home</a></li>
+                <li><a href="#about" id="aboutPath">About</a></li>
+                <li><a href="#skills" id="skillsPath">Skills</a></li>
+                <li><a href="#experience" id="experiencePath">Experience</a></li>
+                <li><a href="#education" id="educationPath">Education</a></li>
+                <li><a href="#portfolio" id="portfolioPath">Portfolio</a></li>
+                <li><a href="#contact" id="contactPath">Contact</a></li>
             </ul>
 
         </nav>
@@ -104,29 +104,29 @@
                 <span><i class="fa-solid fa-laptop"></i></span>
                 <span>SKILLS</span>
             </h1>
-            <div class="skills-display">
+            <div class="skills-display" id="skills-container">
                 <div class="skill-progress">
-                    <div class="skill-level color-blue text-center percent-50">
+                    <div class="skill-level color-blue text-center percent-50" data-bar-width="50" data-visited="false">
                         <div class="text_center"> C</div>
                     </div>
                 </div>
                 <div class="skill-progress">
-                    <div class="skill-level color-orange text-center percent-90">
+                    <div class="skill-level color-orange text-center percent-90" data-bar-width="90" data-visited="false">
                         <div class="text_center"> Java</div>
                     </div>
                 </div>
                 <div class="skill-progress">
-                    <div class="skill-level color-brown text-center percent-80">
+                    <div class="skill-level color-brown text-center percent-80" data-bar-width="80" data-visited="false">
                         <div class="text_center"> HTML</div>
                     </div>
                 </div>
                 <div class="skill-progress">
-                    <div class="skill-level color-green text-center percent-50">
+                    <div class="skill-level color-green text-center percent-50" data-bar-width="50" data-visited="false">
                         <div class="text_center">CSS</div>
                     </div>
                 </div>
                 <div class="skill-progress">
-                    <div class="skill-level color-blue text-center percent-50">
+                    <div class="skill-level color-blue text-center percent-50" data-bar-width="50" data-visited="false">
                         <div class="text_center"> Python</div>
                     </div>
                 </div>
@@ -322,6 +322,7 @@
             </div>
         </section>
     </main>
+    <script src="resume_script.js"></script>
 </body>
 
 </html>
