@@ -1,0 +1,22 @@
+.images{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+.images img{
+    margin: 1rem;
+}
+
+.indicator{
+    position: fixed;
+    top: 2.5%;
+    right: 5%;
+    border: 2px solid green;
+    box-shadow: 0px 0px 4px 4px lightgreen;
+    border-radius: 20px;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    transition: all ease-in 1s;
+}
