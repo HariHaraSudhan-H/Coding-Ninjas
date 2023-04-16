@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+}
+.app{
+    height: 100vh;
+    background-image:linear-gradient(45deg, aliceblue,pink) ;
+}
+.button{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: relative;
+    top: 50%;
+    left: 20%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    /* transition: all ease-in-out 5s; */
+}
+.button p{    
+    text-align: center;
+}
