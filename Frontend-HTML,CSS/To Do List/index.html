@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="list_style.css">
+</head>
+
+<body>
+    <h1>My To do List</h1>
+    <input type="text" name="ToDoItem" id="taskInput" placeholder="Add a task" class="taskInput">
+    <div class="taskCount" id="taskCount">Total tasks : <snap id="count">0</snap>
+    </div>
+    <ul id="list">
+        <!-- <li>
+            <input type="checkbox" name="task1" id="task1" data-id="12" class="custom-checkbox">
+            <label for="task1">Buy groceries</label>
+            <snap id="deleteIcon" class="delete"><i class="fa-solid fa-trash-can"></i></snap>
+        </li> -->
+    </ul>
+    <script src="https://kit.fontawesome.com/1c1d231961.js" crossorigin="anonymous"></script>
+    <script src="list_script.js"></script>
+    <script type="text/javascript">
+        todoList.startApp()
+    </script>
+</body>
+
+</html>
