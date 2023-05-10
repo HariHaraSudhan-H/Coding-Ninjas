@@ -1,0 +1,717 @@
+<!-- The Following code is written by Dhruv Arora (github.com/itsdhruvarora) -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Playlist-1</title>
+
+    <meta charset="UTF-8">
+    <!-- set viewport meta property -->
+    <meta name="viewport" content="Width=device-width, initial-scale=1.0">
+
+    <!-- linking the css file -->
+    <link rel="stylesheet" href="playlist_style.css">
+
+    <!-- use the below to use font-awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="bg-container">
+        <header class="page-header">
+            <div class="logoAndTitle-container">
+                <a href="home.html"><img
+                        src="https://res.cloudinary.com/dilxqj69w/image/upload/v1623063426/studio-ninja-logo_iafjyi.jpg" /></a>
+                <p class="titlepara">Favourites</p>
+            </div>
+            <div class="searchboxAndProfile-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search" />
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <i class="fas bell fa-bell"></i>
+                <img class="profile-photo"
+                    src="https://lh3.googleusercontent.com/h5ZQMzVuMJeb-iiZe5YTY6YF-LxXgtGNulDWSHkLFMNv3p7W6ANM-xlX8YISSKsiRxnRZEW8hs8cFAEuJYskheveU8P86zzlkKTvDnUQQjsFE-r8viQ9cTpoMe7Z3DsZeaiSb_SE-mZuBoM5qV8OhIqg-xj7rsx0rW7kgcSC3QPlzRrkkAzGyA3nVTSNRBVf9_iccvSlLKuJGkghkAm2NRkY0eCIZs9cDNfGYmUdQdwTCsR4vRMrKVTUbPK3N90yKqi96JtGe9Rhso4HUB7A7C1y80rL_XsDKZw1pduiwDVZBYg4NBIA0Cp-8PkCHlCLLtKzRN7s8giHoFL1dKLVB4ej-puJj_SPLIl25NxavySUegkHrqHY7MRM25vKESNS4aL-bsM2lm7_gW11PZ5ehUte4UuIv15x3-7w5fQCHe02Rs_G9jPF7cTwSDMDMUKXRGXnHJlydzph0Y4QIdco2cmFkXR_p2Q4JVcqGz6NAc4i58d7XeBleD3B1kS3ZK3UIP4DwGE4miTLwxV7ZdFQlaIitObLsOe3Hjl2-dUidN4ZOq7r55vAdwNnecTSoYaCXoe_HifYVpOz6nHCAn2Us3Mfyb97UvU41BfGZnMYr-AcxlkrXBn8QNtq6QGmqOOyID3u-y9FLq02BaHXENxDIKDxcyeKueHKQhCTupzNDn8MAPPnx1NQfkymK0mky1pw3izOOZGTHYkZQbZsHoRsYbcehKAB2r5px6QKT4YmtDN4F8jxvz7xSP_ilgfaGdNp7FpcfYCUxvu5hCcPnGH5G0Q9wMchR0JXnLMMuRR30a1fs6NhEFOVTukiwU4FkhpMsGxkwAARK-32B60ygHBCHW9uOAJKzKVya9Or9QfKp4AcdsWQBbTv3jmF624TWVdmaLUvXFVfoBBs2IMCBryhp6dqqKDSmxM1z36Im7nkcUdMJvuYHRRP2p7B04Sgw5ECOypZZ2gdkdTDmFYJm1apGA=s612-no?authuser=0" />
+            </div>
+        </header>
+
+        <input style="display: none;" type="checkbox" id="play-btn-checkbox1" />
+
+        <input style="display: none;" type="checkbox" id="play-btn-checkbox2" />
+
+        <input style="display: none;" type="checkbox" id="play-btn-checkbox3" />
+
+        <div class="for-responsiveness">
+            <main>
+                <div class="playlist-card-container">
+                    <div class="blur-effect-container">
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTnZh2WL2YGLuEC_SeVmYZbImFMT90DxZEKQ&usqp=CAU" />
+                        <div class="blur-effect">
+
+                        </div>
+                    </div>
+
+                    <div class="playlist-content-container">
+                        <div style="display: flex;justify-content: space-between;align-items: center;">
+                            <p class="p1" style="color: #FDFDFD; font-size: 1.5rem; font-weight: bold;">Anirudh
+                                Ravichandran</p>
+                            <p class="p2" style="color: #A1A3B3; font-size: 1rem;">851 Followers</p>
+                        </div>
+                        <p class="p3" style="color: #A1A3B3; font-size: 1rem;margin-top: -0.5rem;">Kollywood Music
+                            Director</p>
+                        <p class="p4"
+                            style="color: #A1A3B3; font-size: 0.9rem;margin-bottom: 3rem;margin-top: -0.4rem;">Anirudh
+                            Ravichander, also credited mononymously as Anirudh, is an Indian music composer, music
+                            producer, singer who works in the Indian film industry, primarily in Tamil films.</p>
+
+                        <div>
+                            <button class="play-all-btn">Play All</button>
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                        <p class="p5" style="color: #767B90; font-size: 0.9rem;">247 Tracks | 128 Albums</p>
+                    </div>
+                </div>
+
+                <div id="queue-1" class="queue-container">
+                    <div class="queue-elements-container">
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">01</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/O4RhrlnxH-04BkiZEGih1ZfpkRwsbF4gsF-fGJL0jUactIoK732grGn3FWbKdhTqkBvRK9Hvw2riIetI=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Arabic Kuthu</p>
+                                    <p class="queue-artist-name">Anirudh, Jonita Gandhi </p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">08</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://i.scdn.co/image/ab67616d0000b273f7f31e4a143a5b3a796cea86" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Jimmiki Ponnu</p>
+                                    <p class="queue-artist-name">Thaman</p>
+                                </div>
+                            </div>
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">09</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://c.saavncdn.com/295/Bae-From-Don--Tamil-2022-20220203163123-500x500.jpg" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Bae</p>
+                                    <p class="queue-artist-name">Anirudh</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">04</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/PT0SGP5ojsedR6f9vyRnad73ZtQplSDmrP5lMUKYgZI-HPIHiYa79fnHRXYZuahrqAVKkHa0pn6_ipfi=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Thaai Kelavi</p>
+                                    <p class="queue-artist-name">Dhanush</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">05</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/zpY1LFPPdxNyadALvdHLB61-rNJHK3Qq4tuoeLCsKm81fRQbW6_W4ik-YARd68BRHNlZ3uCSZ6Guo-ki=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Why this kolaveri</p>
+                                    <p class="queue-artist-name">Dhanush</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">06</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/RVV6SD08fa2gUjg-xQk5NPiDm87jrb1wcUnJtTzY94OvtAkO-9amAXCEEN6GXfas84Pbnk2ERgyVyx4=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Vaathi Coming</p>
+                                    <p class="queue-artist-name">Anirudh</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">07</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/Bz0bJ1qVAc1SwmUDPpOmNB2JwPtSSxyvEaxBPiB48tBc5hzw21bn6nu5KGIh8xxbo6iYDGEWSDbO3vEU=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Thenmozhi</p>
+                                    <p class="queue-artist-name">Santhosh Narayanan</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">08</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/LcSQ14ggv7JhGWikgTRHfxsCZyvFx6SoMXhI44kD5WlB-p1JgNt5aCslLC_CpfW-Fouj1S1tGKSkiHgp=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Vikram (Title Track)</p>
+                                    <p class="queue-artist-name">Dua Lipa</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">09</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/4fVrnW-xg5pc-Am-X0wEJ-ciwbvEG60cX1dOQXyQyRJeGkZ4L0g5CDmOWhwT1djzk4CsDfgtfFxlhn_iPA=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Private Party</p>
+                                    <p class="queue-artist-name">Anirudh, Jonita Gandhi</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">10</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/v0ALFsPVPrQTsa9owzgbrtkcijwN_r48NRND0cClHAaGe2W4f5wty-kUa4-0Yk0ZqOcCnyX-TO_TAYU=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">dhazhin Oram (The Innocence of Love)</p>
+                                    <p class="queue-artist-name">Anirudh</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">11</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/qVE-BVGChZ9NLlBqDxqqEIOLeLe_ntl-0XBpEqnedPXLVb0iYKuwSu65IbSU8C4Yu6jHCDrtOFAhnZNT=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Chellamma</p>
+                                    <p class="queue-artist-name">Anirudh, Jonita Gandhi</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">12</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://lh3.googleusercontent.com/-CktFhNFfOEnLcVQtfs_ePduunaBH9EKs1ipKSLf_nquMpV4LqdeYXoEsX02SS1nvZ7OlgIr8RyVe3k=w544-h544-l90-rj" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Kanave Kanave</p>
+                                    <p class="queue-artist-name">Anirudh</p>
+                                </div>
+                            </div>
+
+                            <div class="icons-container">
+                                <i class="far wishlist-icon fa-heart"></i>
+                                <i class="fas add-icon fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside>
+                <div class="latest-release-container">
+                    <div class="latest-release-header">
+                        <p>Similar Artists</p>
+                        <a href="">View All</a>
+                    </div>
+                    <div class="latest-release-cards-container">
+                        <div class="latest-release-card">
+                            <div class="song-name-and-img-container">
+                                <div class="latest-release-img-container">
+                                    <label for="play-btn-checkbox1"><i
+                                            class="fas latest-release-play-btn fa-play play-1"></i><i
+                                            class="latest-release-pause-btn fas fa-pause pause-1"></i></label>
+                                </div>
+                                <div>
+                                    <p class="song-name">Pogathey</p>
+                                    <p class="date">AUG 11, 2017</p>
+                                </div>
+                            </div>
+
+                            <div class="latest-release-dropdown-container">
+                                <label for="latest-release-checkbox1"><i
+                                        class="fas more-details fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox1">
+                                <div class="latest-release-dropdown">
+
+                                    <div class="links-container">
+                                        <i class="fas fa-play"></i>
+                                        <a href="">Play Now</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-plus"></i>
+                                        <a href="">Add To Queue</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-bars"></i>
+                                        <a href="">Add To Favourites</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <a href=""><span></span>Get Info</a>
+                                    </div>
+
+                                </div>
+                                <p class="time">4:44</p>
+                            </div>
+
+                        </div>
+                        <div class="latest-release-card">
+                            <div class="song-name-and-img-container">
+                                <div class="latest-release-img-container">
+                                    <label for="play-btn-checkbox3"><i
+                                            class="fas latest-release-play-btn fa-play play-3"></i><i
+                                            class="latest-release-pause-btn fas fa-pause pause-3"></i></label>
+                                </div>
+                                <div>
+                                    <p class="song-name">Kirutu Kirutu</p>
+                                    <p class="date">AUG 11, 2017</p>
+                                </div>
+                            </div>
+
+                            <div class="latest-release-dropdown-container">
+                                <label for="latest-release-checkbox3"><i
+                                        class="fas more-details fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox3">
+                                <div class="latest-release-dropdown">
+
+                                    <div class="links-container">
+                                        <i class="fas fa-play"></i>
+                                        <a href="">Play Now</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-plus"></i>
+                                        <a href="">Add To Queue</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-bars"></i>
+                                        <a href="">Add To Favourites</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <a href=""><span></span>Get Info</a>
+                                    </div>
+
+                                </div>
+                                <p class="time">4:44</p>
+                            </div>
+
+                        </div>
+                        <div class="latest-release-card">
+                            <div class="song-name-and-img-container">
+                                <div class="latest-release-img-container">
+                                    <label for="play-btn-checkbox2"><i
+                                            class="fas latest-release-play-btn fa-play play-2"></i><i
+                                            class="latest-release-pause-btn fas fa-pause pause-2"></i></label>
+                                </div>
+                                <div>
+                                    <p class="song-name">Klesa Kadhala</p>
+                                    <p class="date">AUG 11, 2017</p>
+                                </div>
+                            </div>
+
+                            <div class="latest-release-dropdown-container">
+                                <label for="latest-release-checkbox2"><i
+                                        class="fas more-details fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox2">
+                                <div class="latest-release-dropdown">
+
+                                    <div class="links-container">
+                                        <i class="fas fa-play"></i>
+                                        <a href="">Play Now</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-plus"></i>
+                                        <a href="">Add To Queue</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-bars"></i>
+                                        <a href="">Add To Favourites</a>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="links-container">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <a href=""><span></span>Get Info</a>
+                                    </div>
+
+                                </div>
+                                <p class="time">4:44</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="queue-2" class="queue-container">
+                    <div class="queue-header">
+                        <p>Recently Played</p>
+                        <div class="queue-btn-container">
+
+                            <!-- here label is acting as a button for dropdown effect -->
+                            <a href="">View All</a>
+                        </div>
+                    </div>
+
+                    <div class="queue-elements-container">
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">10</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://a10.gaanacdn.com/gn_img/albums/9MAWe97WyJ/AWe9L6RzWy/size_m.webp" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Adi Penne</p>
+                                    <p class="queue-artist-name">Stephen</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">11</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="data:image/jpeg;base64,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" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Life of Ram</p>
+                                    <p class="queue-artist-name">Govind Vasantha</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">12</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://naasongs.com.co/wp-content/uploads/2022/07/Vaathi-2022-1.jpg" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Vaa Vaathi</p>
+                                    <p class="queue-artist-name">G.V.Prakash</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">04</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://marketplace.canva.com/EAFJoQh1lwQ/1/0/1600w/canva-black-minimalist-rain-middle-night-music-album-youtube-thumbnail-EIqhzCjYkJ4.jpg" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Worry Bout Us</p>
+                                    <p class="queue-artist-name">Rosie Lowe</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">05</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://media.istockphoto.com/id/843201750/photo/listen-to-sad-music-concept.jpg?b=1&s=170667a&w=0&k=20&c=njpGWjkKandLUvNHZuJdpVp7kpU9gHgwUQ2MMYPxS2M=" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">New Skin</p>
+                                    <p class="queue-artist-name">Flume</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">06</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://marketplace.canva.com/EAFJoQh1lwQ/1/0/1600w/canva-black-minimalist-rain-middle-night-music-album-youtube-thumbnail-EIqhzCjYkJ4.jpg" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Mirage</p>
+                                    <p class="queue-artist-name">Else</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">07</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://media.istockphoto.com/id/843201750/photo/listen-to-sad-music-concept.jpg?b=1&s=170667a&w=0&k=20&c=njpGWjkKandLUvNHZuJdpVp7kpU9gHgwUQ2MMYPxS2M=" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Mirage</p>
+                                    <p class="queue-artist-name">Else</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">08</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://marketplace.canva.com/EAFJoQh1lwQ/1/0/1600w/canva-black-minimalist-rain-middle-night-music-album-youtube-thumbnail-EIqhzCjYkJ4.jpg" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Worry Bout Us</p>
+                                    <p class="queue-artist-name">Rosie Lowe</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">08</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://media.istockphoto.com/id/843201750/photo/listen-to-sad-music-concept.jpg?b=1&s=170667a&w=0&k=20&c=njpGWjkKandLUvNHZuJdpVp7kpU9gHgwUQ2MMYPxS2M=" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">New Skin</p>
+                                    <p class="queue-artist-name">Flume</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">09</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://marketplace.canva.com/EAFJoQh1lwQ/1/0/1600w/canva-black-minimalist-rain-middle-night-music-album-youtube-thumbnail-EIqhzCjYkJ4.jpg" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Worry Bout Us</p>
+                                    <p class="queue-artist-name">Rosie Lowe</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">10</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://media.istockphoto.com/id/843201750/photo/listen-to-sad-music-concept.jpg?b=1&s=170667a&w=0&k=20&c=njpGWjkKandLUvNHZuJdpVp7kpU9gHgwUQ2MMYPxS2M=" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">New Skin</p>
+                                    <p class="queue-artist-name">Flume</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                        <div id="queue-element-2" class="queue-element">
+                            <div class="song-image-container">
+                                <p class="queue-number">11</p>
+                                <div class="image-container">
+                                    <img class="queue-song-img" src="https://marketplace.canva.com/EAFJoQh1lwQ/1/0/1600w/canva-black-minimalist-rain-middle-night-music-album-youtube-thumbnail-EIqhzCjYkJ4.jpg" />
+                                    <i class="fas play-btn fa-play"></i>
+                                </div>
+                                <div class="song-and-artist-container">
+                                    <p class="queue-song-name">Mirage</p>
+                                    <p class="queue-artist-name">Else</p>
+                                </div>
+                            </div>
+
+                            <i class="far wishlist-icon fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <!-- Song Thumnail, Title, Singer -->
+            <div id="footer-song-info">
+                <div id="footer-song-image"></div>
+                <div id="footer-song-name">
+                    <span style="color:white">Pogathey</span>
+                    <span class="subtitle">Yuvan Shankar Raja</span>
+                </div>
+                <div>
+                    <span>
+                        <i class="far fa-heart subtitle"></i>
+                    </span>
+                    <span>
+                        <i class="fas fa-ban subtitle"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Contains Player Controls: Play, Pause, Next, Previous, Shuffle and Repeat with Slider -->
+            <div id="player">
+
+                <div id="player-control">
+                    <div><i class="fas fa-random"></i></div>
+                    <div><i class="fas fa-step-backward"></i></div>
+                    <div><i class="far fa-pause-circle" style="font-size: 2rem;"></i></div>
+                    <div><i class="fas fa-step-forward"></i></div>
+                    <div><i class="fas fa-redo"></i></div>
+                </div>
+
+                <div id="player-slider-container">
+                    <div class="subtitle">
+                        0:00
+                    </div>
+
+                    <input type="range" min="0" max="100" value="25">
+
+                    <div class="subtitle">
+                        4:44
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volume buttom, Expand button -->
+            <div class="player-extras">
+                <div>
+                    <i class="fas fa-list-ul"></i>
+                </div>
+                <div>
+                    <i class="fas fa-laptop"></i>
+                </div>
+
+                <div class="volume-container">
+                    <span><i class="fas fa-volume-up"></i></span>
+                    <input type="range" min="0" max="100" value="50" class="slider" id="volume-slider">
+                </div>
+                <div><i class="fas fa-expand"></i></div>
+            </div>
+
+        </footer>
+    </div>
+</body>
+
+</html>
