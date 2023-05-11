@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/home.css">
+</head>
+
+<body>
+    <h1 id="page-header"> <i class="fa-solid fa-address-book" id="contactIcon"></i>My Contacts</h1>
+    <p id="contactCount">No of Contacts : <%=contact_list.length%>
+    </p>
+    <div class="main">
+        <ul class="contact_list">
+            <%for(let i of contact_list){%>
+                <li class="contacts">
+                    <div class="details">
+                        <p id="name">
+                            <%=i.name%>
+                        </p>
+                        <p>
+                            <%=i.mobile%>
+                        </p>
+                    </div>
+                    <a class="delete" href="/delete-contact/?id=<%=i.id%>">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </li>
+                <%}%>
+        </ul>
+        <form action="/new-contact" method="POST">
+            <input type="text" name="name" placeholder="Enter name" required>
+            <input type="text" name="mobile" placeholder="Enter mobile number" required>
+            <button type="submit">Add Contact</button>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="/home.js"></script>
+    <script src="https://kit.fontawesome.com/1c1d231961.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

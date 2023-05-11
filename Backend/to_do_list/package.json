@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0",
+    "nodemon": "^2.0.22"
+  },
+  "name": "to_do_list",
+  "version": "1.0.0",
+  "description": "A to do list to note all the works both personal and official",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HariHaraSudhan",
+  "license": "ISC"
+}
