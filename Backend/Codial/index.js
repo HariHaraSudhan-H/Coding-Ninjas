@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = 800; //production level will be 80
-
+const expressLayout = require('express-ejs-layouts');
+app.use(express.static('assets'));
+app.use(expressLayout);
 app.set('view engine','ejs');
 app.set('views','./views')
 // using express router
