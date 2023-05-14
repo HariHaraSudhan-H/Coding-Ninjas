@@ -1,5 +1,6 @@
 console.log('connected to js')
 let category = document.querySelectorAll('.outputCategory');
+// let confirmation = window.confirm("hello");
 console.log(category);
 for(let i of category){
     console.log(i.innerText);
