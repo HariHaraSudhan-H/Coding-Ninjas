@@ -7,6 +7,9 @@ app.use(express.static('assets'));
 app.use(expressLayout);
 app.set('view engine','ejs');
 app.set('views','./views')
+
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
 // using express router
 
 app.use('/',require('./routes/index'));
