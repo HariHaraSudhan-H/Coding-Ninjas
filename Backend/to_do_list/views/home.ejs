@@ -47,7 +47,11 @@
                     </p>
                     <p class="outputDate">
                         <i class="fa-solid fa-calendar-days"></i>
-                        <%=i.dueDate%>
+                        <%if(i.dueDate!=''){%>
+                            <%=i.dueDate%>
+                        <%}else{%>
+                            NO DEADLINE
+                        <%}%>
                     </p>
                 </div>
                 <div class="categoryIcons">
