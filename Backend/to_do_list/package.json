@@ -10,6 +10,7 @@
   "description": "A to do list to note all the works both personal and official",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "HariHaraSudhan",
