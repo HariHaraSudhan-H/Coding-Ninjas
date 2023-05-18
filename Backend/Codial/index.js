@@ -1,15 +1,24 @@
 const express = require('express');
 const path = require('path');
-const app = express();
 const port = 800; //production level will be 80
+
+
+const app = express();
+const db = require('./config/mongoose');
+const User = require('./models/user');
 const expressLayout = require('express-ejs-layouts');
-app.use(express.static('assets'));
+
+app.use(express.urlencoded());
+app.use(express.static('./assets'));
+
 app.use(expressLayout);
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
 app.set('view engine','ejs');
 app.set('views','./views')
 
-app.set('layout extractStyles',true);
-app.set('layout extractScripts',true);
+
 // using express router
 
 app.use('/',require('./routes/index'));
