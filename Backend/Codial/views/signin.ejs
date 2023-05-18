@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="/css/signup.css">
 <h1>Sign In</h1>
-<form action="/signin" method="POST">
-    <input type="text" placeholder="Name" name="name">
-    <input type="email" name="email" id="email" placeholder="Email-Id">
-    <input type="password" name="password" id="password" placeholder="password">
+<form action="/users/signin/display-user" method="get">
+    <input type="email" name="email" id="email" placeholder="Email-Id" required>
+    <input type="password" name="password" id="password" placeholder="password" required>
     <button type="submit" >Sign In</button>
 </form>

@@ -1,15 +1,21 @@
 const express = require('express');
+const cookie_parser = require('cookie-parser');
 const path = require('path');
 const port = 800; //production level will be 80
 
 
 const app = express();
+// Reading the DB & model
 const db = require('./config/mongoose');
 const User = require('./models/user');
+
 const expressLayout = require('express-ejs-layouts');
 
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
+
+//running the cookie parser
+app.use(cookie_parser());
 
 app.use(expressLayout);
 app.set('layout extractStyles',true);

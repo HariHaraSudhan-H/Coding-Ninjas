@@ -8,9 +8,6 @@ router.get('/',homeController.home);
 //accessing the userController 
 router.use('/users',require('./user'));
 
-router.use('/signup',require('./signup'));
-router.use('/signin',require('./'));
-
 
 console.log('Connected to router');
 module.exports = router;
