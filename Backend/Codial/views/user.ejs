@@ -1,8 +1,10 @@
     <link rel="stylesheet" href="/css/user_profile.css">
+    <a href="/users/signout">Signout</a>
     <div>
-        <%if(user.name!=''){%>
+        <!-- <%if(user.name!=''){%> -->
         Username : <%=user.name%>
-        <%}else{%>
-        Username : <%=user.email%> 
-        <%}%>
+        <!-- <%}else{%> -->
+        Email : <%=user.email%> 
+        <!-- <%}%> -->
+        Date created : <%=user.createdAt%>
     </div>
