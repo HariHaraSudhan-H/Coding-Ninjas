@@ -4,4 +4,5 @@ body{
 html{
     height: 100vh;
     background-image: linear-gradient(black,rgb(65, 6, 6));
+    color: aliceblue;
 }
