@@ -72,7 +72,7 @@ module.exports.signin = function (req, res) {
 // Controlling the page after signin for passport.js authentication
 module.exports.displaySignIn = function (req, res) {
     console.log(req.cookies)
-    res.redirect('/');
+    res.redirect('/users/profile');
 
 }
 

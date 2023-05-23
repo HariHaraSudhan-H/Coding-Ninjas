@@ -11,6 +11,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
+const sassMiddleware = require('node-scss-middleware');
 
 // Reading the DB & model
 const db = require('./config/mongoose');
