@@ -1,11 +1,13 @@
-    <li>
-        <%if((locals.user)&&(locals.user.id===comment.user.id)){%>
-            <span>
-                <a href="/post/deleteComment/<%=comment.id%>"><i class="fa-sharp fa-solid fa-trash"></i></a>
-            </span>
-            <%}%>
-                <%=comment.content%>
-    </li>
-    COMMENTED BY <span>
-        <%=comment.user.name%>
-    </span>
+<li id="comment-<%=comment.id%>">
+    <%if((locals.user)&&(locals.user.id===comment.user.id)){%>
+        <span>
+            <a href="/post/deleteComment/<%=comment.id%>" class="delete-comment-button"><i
+                    class="fa-sharp fa-solid fa-trash"></i></a>
+        </span>
+        <%}%>
+            <%=comment.content%>
+
+                COMMENTED BY <span>
+                    <%=comment.user.name%>
+                </span>
+</li>

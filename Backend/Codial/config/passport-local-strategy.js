@@ -6,18 +6,21 @@ const User = require('../models/user');
 
 // authentication using passport.js
 passport.use(new LocalStrategy({
-    usernameField: 'email'
+    usernameField: 'email',
+    passReqToCallback: true
 },
-    function (email, password, done) {
+    function (req,email, password, done) {
         User.findOne({ email: email })
         .then((user)=>{
             if(!user||user.password!=password){
                 console.log('Invalid Username/password');
+                req.flash('success','Invalid Username/password');
+
                 return done(null,false);
             }
             return done(null,user);
         })
-        .catch(()=>{
+        .catch((err)=>{
             console.log('Error finding the user --> Passport.js');
                 return done(err);
         })
@@ -48,6 +51,7 @@ passport.checkAuthenticated = function(req,res,next){
     }
 
     // if user is not signed
+    req.flash('error','Please signin to view')
     return res.redirect('/users/signin');
 }
 

@@ -1,31 +1,28 @@
 const Post = require('../models/post');
 const User = require('../models/user');
-module.exports.home = function (req, res) {
-    Post.find({}).populate('user')
+module.exports.home = async function (req, res) {
+
+    try {
+        let posts = await Post.find({})
+        .sort('-createdAt')
+        .populate('user')
         .populate({
             path: 'comments',
             populate: {
                 path: 'user'
             }
         })
-        .then((posts) => {
-            User.find({})
-                .then((friends) => {
-                    return res.render('home', {
+    let friends = await User.find({});
+    return res.render('home', {
                         title: 'Codial | Home',
                         posts: posts,
                         allFriends:friends
                     });
-                })
-                .catch(()=>{
-                    console.log('Users not found')
-                    return res.redirect('back');
-                })
+    } catch (error) {
+        req.flash('error','error')
 
-        })
-        .catch((err) => {
-            console.log('Error', err);
-            return res.redirect('back');
-        })
+        return;
+    }
+    
 
 }

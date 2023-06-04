@@ -10,9 +10,11 @@ module.exports.createUser = function (req, res) {
         password: req.body.password
     })
         .then((newUser) => {
+            req.flash('success',`Welcome ${newUser.name} !!`)
             return res.redirect('/users/signin');
         })
         .catch((err) => {
+            req.flash('error','Error creating the user')
             console.log('Error creating the user',err);
             return
         })

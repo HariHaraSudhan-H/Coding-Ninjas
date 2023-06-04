@@ -1,83 +1,112 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-module.exports.CreatePost = function (req, res) {
-    Post.create({
-        content: req.body.content,
-        user: req.user._id
-    })
-        .then((newPost) => {
-            console.log('Post created and published');
-            return res.redirect('back');
-        })
-        .catch((err) => {
-            console.log("error in creating the post");
-            return;
-        })
-}
-
-module.exports.DeletePost = function (req, res) {
-    console.log(req.params.id);
-    Post.findById(req.params.id)
-        .then((postRemove) => {
-            if (postRemove.user == req.user.id) {
-                postRemove.deleteOne();
-                Comment.deleteMany({ post: String(req.params.id) })
-                    .then((comments) => {
-                        console.log('Comments deleted');
-                    })
-                    .catch((err) => {
-                        console.log('error in deleting comments')
-                    });
-
-            }
-            return res.redirect('back');
-        })
-}
-
-module.exports.CreateComment = function (req, res) {
-    Post.findById(req.body.post)
-        .then((post) => {
-            Comment.create({
-                content: req.body.content,
-                user: req.user._id,
-                post: req.body.post
+module.exports.CreatePost = async function (req, res) {
+    try {
+        let newPost = await Post.create({
+            content: req.body.content,
+            user: req.user._id
+        });
+        if (req.xhr) {
+            console.log('inside xhr');
+            newPost = await newPost.populate({
+                path: 'user',
+                select: 'name'
             })
-                .then((newComment) => {
-                    console.log('Comment created and published');
-                    post.comments.push(newComment);
-                    post.save();
-                    console.log(newComment.user);
-                    return res.redirect('/');
-                })
-                .catch((err) => {
-                    console.log("error in creating the comment", err);
-                    return;
-                })
-        })
-        .catch((err) => {
-            console.log('error finding the post');
-        })
+            return res.status(200).json({
+                data: {
+                    post: newPost
+                },
+                message: "Post Created"
+            });
+        }
+        req.flash('success', 'Post created and published')
+        console.log('Post created and published');
+        return res.redirect('back');
+    } catch (error) {
+        req.flash('error', 'Error in Post creation')
+        return;
+    }
+}
 
+module.exports.DeletePost = async function (req, res) {
+    try {
+        let postRemove = await Post.findById(req.params.id);
+        postRemove.deleteOne();
+        if (req.xhr) {
+            console.log('inside xhr for deleting post')
+            return res.status(200).json({
+                data: {
+                    post_id: req.params.id
+                },
+                message: "Post deleted"
+            })
+        }
+        let comments = await Comment.deleteMany({ post: String(req.params.id) });
+        req.flash('success', 'Post deleted')
+        return res.redirect('back');
+    } catch (error) {
+        console.log('error in deleting', error)
+    }
+
+}
+
+module.exports.CreateComment = async function (req, res) {
+    try {
+        let post = await Post.findById(req.body.post);
+        let newComment = await Comment.create({
+            content: req.body.content,
+            user: req.user._id,
+            post: req.body.post
+        });
+
+        post.comments.push(newComment);
+        post.save();
+        if (req.xhr) {
+            console.log('inside xhr for comment');
+            newComment = await newComment.populate({
+                path: 'user',
+                select: 'name'
+            })
+            return res.status(200).json({
+                data: {
+                    post: newComment
+                },
+                message: "Comment Created"
+            });
+        }
+        req.flash('success', 'Comment created and published')
+        console.log(newComment.user);
+        return res.redirect('/');
+    } catch (error) {
+        req.flash('error', 'Error in Post creation')
+        return;
+    }
 };
 
-module.exports.DeleteComment = function (req, res) {
-    Comment.findById(req.params.id)
-        .then((comment) => {
-            if (comment.user == req.user.id) {
-                const postID = comment.post;
-                comment.deleteOne();
-                Post.findByIdAndUpdate(postID, {
-                    $pull: {
-                        comments: req.params.id
-                    }
+module.exports.DeleteComment = async function (req, res) {
+    try {
+        let comment = await Comment.findById(req.params.id);
+        if (comment.user == req.user.id) {
+            let postID = comment.post;
+            comment.deleteOne();
+            let post = Post.findByIdAndUpdate(postID, {
+                $pull: {
+                    comments: req.params.id
+                }
+            })
+            if (req.xhr) {
+                console.log('inside xhr for deleting comment')
+                return res.status(200).json({
+                    data: {
+                        comment_id: req.params.id
+                    },
+                    message: "comment deleted"
                 })
-                    // .then((post) => {
-                    //     return res.redirect('back');
-                    // })
-                    // .catch((err) => {
-                    //     return res.redirect('back');
-                    // })
             }
+            req.flash('success', 'Comment deleted')
             return res.redirect('/');
-        })
+        }
+    } catch (error) {
+        console.log('Error in deleting comment',error);
+    }
 }

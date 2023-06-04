@@ -21,13 +21,13 @@ const User = require('../models/user')
 
 module.exports.userProfile = function (req, res) {
     User.findById(req.params.id)
-    .then((user)=>{
-        return res.render('user', {
-        title: "Codial",
-        profileUser :user
-    })
-    })
-    
+        .then((user) => {
+            return res.render('user', {
+                title: "Codial",
+                profileUser: user
+            })
+        })
+
 }
 
 // Controlling the signup page
@@ -77,17 +77,35 @@ module.exports.signin = function (req, res) {
 // Controlling the page after signin for passport.js authentication
 module.exports.displaySignIn = function (req, res) {
     console.log(req.cookies)
-    res.redirect('/users/profile');
+    req.flash('success','Logged in successfully');
+    res.redirect('/');
 
 }
 
 // Controlling the signout option
 module.exports.signout = function (req, res) {
     req.logout(function (err) {
-        if (err) {
+        if (err) { 
             return;
         }
-
+    req.flash('success','Logged out successfully');
         return res.redirect('/');
     });
+}
+
+// updating user content 
+module.exports.update = function (req, res) {
+    console.log(req.body.name,String(req.params.id));
+    const userID = req.params.id;
+    if (req.user.id == req.params.id) {
+        User.findByIdAndUpdate(userID, req.body)
+        .then((user)=>{
+            req.flash('success',`User details updated for ${req.body.name}`);
+            return res.redirect('back');
+        })
+        
+    }
+    else {
+        return res.status(401).send('Unauthorized');
+    }
 }

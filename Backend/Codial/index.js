@@ -4,6 +4,7 @@ const app = express();
 
 const path = require('path');
 const port = 800; //production level will be 80
+const hostname = 'codial'
 const expressLayout = require('express-ejs-layouts');
 
 // used for session cookie
@@ -16,7 +17,8 @@ const MongoStore = require('connect-mongo');
 // Reading the DB & model
 const db = require('./config/mongoose');
 const User = require('./models/user');
-
+const flash = require('connect-flash');
+const customMWare = require('./config/middleware');
 
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
@@ -57,7 +59,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
-
+app.use(flash());
+app.use(customMWare.setFlash);
 // using express router
 
 app.use('/',require('./routes/index'));
