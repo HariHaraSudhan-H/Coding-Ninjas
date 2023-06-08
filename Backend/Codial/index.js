@@ -11,7 +11,9 @@ const expressLayout = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const passportJWT = require('./config/passport-jwt'); 
 const MongoStore = require('connect-mongo');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 // const sassMiddleware = require('node-scss-middleware');
 
 // Reading the DB & model
@@ -22,35 +24,36 @@ const customMWare = require('./config/middleware');
 
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
-
+// make the uploads path available to browser
+app.use('/uploads', express.static(__dirname + '/uploads'))
 //running the cookie parser
 app.use(cookieParser());
 
 // extract style and scripts from subFiles of HTML
 app.use(expressLayout);
-app.set('layout extractStyles',true);
-app.set('layout extractScripts',true);
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
 
 // set up view engine
-app.set('view engine','ejs');
-app.set('views','./views');
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
 // mongo-store is used to store the cookie
 app.use(session({
-    name:'User',
-    secret:'somethingSecret',
-    saveUninitialized:false,
+    name: 'User',
+    secret: 'somethingSecret',
+    saveUninitialized: false,
     resave: false,
-    cookie:{
-        maxAge:(1000*60*100)
+    cookie: {
+        maxAge: (1000 * 60 * 100)
     },
     store: MongoStore.create(
         {
-            mongoUrl : 'mongodb://127.0.0.1/codial_development',
+            mongoUrl: 'mongodb://127.0.0.1/codial_development',
             autoRemove: 'enabled'
         },
-        function(err){
-            console.log(err||'connection to db is ok');
+        function (err) {
+            console.log(err || 'connection to db is ok');
         }
     )
 }));
@@ -63,9 +66,9 @@ app.use(flash());
 app.use(customMWare.setFlash);
 // using express router
 
-app.use('/',require('./routes/index'));
-app.listen(port,function(err){
-    if(err){
+app.use('/', require('./routes/index'));
+app.listen(port, function (err) {
+    if (err) {
         console.log(`Error in running the server : $err`)
     }
     console.log('Running on the server');

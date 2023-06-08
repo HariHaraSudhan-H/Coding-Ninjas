@@ -10,5 +10,7 @@ router.get('/',homeController.home);
 router.use('/users',require('./user'));
 router.use('/post',passport.checkAuthenticated,require('./post'));
 
+
+router.use('/api',require('./api'));
 console.log('Connected to router');
 module.exports = router;

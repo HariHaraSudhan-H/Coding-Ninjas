@@ -1,5 +1,6 @@
 const User = require('../models/user')
-
+const fs = require('fs');
+const path = require('path');
 // controlling the user page for manual Authentication
 // module.exports.userProfile = function (req, res) {
 //     if(req.cookies.user_id){
@@ -77,7 +78,7 @@ module.exports.signin = function (req, res) {
 // Controlling the page after signin for passport.js authentication
 module.exports.displaySignIn = function (req, res) {
     console.log(req.cookies)
-    req.flash('success','Logged in successfully');
+    req.flash('success', 'Logged in successfully');
     res.redirect('/');
 
 }
@@ -85,27 +86,55 @@ module.exports.displaySignIn = function (req, res) {
 // Controlling the signout option
 module.exports.signout = function (req, res) {
     req.logout(function (err) {
-        if (err) { 
+        if (err) {
             return;
         }
-    req.flash('success','Logged out successfully');
+        req.flash('success', 'Logged out successfully');
         return res.redirect('/');
     });
 }
 
 // updating user content 
-module.exports.update = function (req, res) {
-    console.log(req.body.name,String(req.params.id));
-    const userID = req.params.id;
+module.exports.update = async function (req, res) {
+    // console.log(req.body.name,String(req.params.id));
+    // const userID = req.params.id;
+    // if (req.user.id == req.params.id) {
+    //     User.findByIdAndUpdate(userID, req.body)
+    //     .then((user)=>{
+    //         req.flash('success',`User details updated for ${req.body.name}`);
+    //         return res.redirect('back');
+    //     })
+
+    // }
+    // else {
+    //     return res.status(401).send('Unauthorized');
+    // }
+
     if (req.user.id == req.params.id) {
-        User.findByIdAndUpdate(userID, req.body)
-        .then((user)=>{
-            req.flash('success',`User details updated for ${req.body.name}`);
+        try {
+            const userID = req.params.id;
+            let user = await User.findByIdAndUpdate(userID, req.body);
+            User.uploadedAvatar(req, res, function (err) {
+                if (err) { console.log('error', err) };
+                user.name = req.body.name;
+                user.email = req.body.email;
+                if (req.file) {
+                    if(user.avatar){
+                        fs.unlinkSync(path.join(__dirname+'/..',user.avatar))
+                    }
+                    user.avatar = User.avatarPath + "/" + req.file.filename;
+                }
+                user.save();
+                return res.redirect('back');
+            });
+        } catch (error) {
+            req.flash('error', error);
+            console.log('error', error);
             return res.redirect('back');
-        })
-        
-    }
-    else {
+        }
+    } else {
+        req.flash('error', 'Unauthorized');
         return res.status(401).send('Unauthorized');
     }
+
 }

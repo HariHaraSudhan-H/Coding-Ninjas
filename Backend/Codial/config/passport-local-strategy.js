@@ -28,7 +28,7 @@ passport.use(new LocalStrategy({
 ));
 // property to send to the cookie
 passport.serializeUser(function(user, done){
-    console.log(user)
+    // console.log(user)
     done(null, user.id);
 });
 // take the cookie data and retrieve from DB

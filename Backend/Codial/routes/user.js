@@ -12,4 +12,8 @@ router.get('/signout',userController.signout);
 router.post('/display-user',passport.authenticate('local',{failureRedirect:'/users/signin'}),userController.displaySignIn);
 router.post('/update/:id',passport.checkAuthenticated,userController.update);
 
+// google authenticate
+router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
+router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/users/signin'}),userController.displaySignIn);
+
 module.exports = router;

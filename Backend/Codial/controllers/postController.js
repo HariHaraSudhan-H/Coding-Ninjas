@@ -10,8 +10,9 @@ module.exports.CreatePost = async function (req, res) {
             console.log('inside xhr');
             newPost = await newPost.populate({
                 path: 'user',
-                select: 'name'
+                select: 'name',
             })
+            console.log(newPost);
             return res.status(200).json({
                 data: {
                     post: newPost
