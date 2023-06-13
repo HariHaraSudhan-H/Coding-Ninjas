@@ -1,13 +1,19 @@
 <li id="comment-<%=comment.id%>">
     <%if((locals.user)&&(locals.user.id===comment.user.id)){%>
         <span>
-            <a href="/post/deleteComment/<%=comment.id%>" class="delete-comment-button"><i
+            <a href="/post/deleteComment/<%=comment.id%>" class="delete-comment-button" method="POST"><i
                     class="fa-sharp fa-solid fa-trash"></i></a>
         </span>
         <%}%>
             <%=comment.content%>
-
-                COMMENTED BY <span>
-                    <%=comment.user.name%>
-                </span>
+            <div class="likes">
+                <%if(locals.user){%>
+                <!-- <span id="likeCount"><%=post.likes.count%></span> -->
+                <a href="/like/toggle/?id=<%=comment._id%>&type=Comment" id="likeButton" class="likeButton" data-likes="<%=comment.likes.length%>"><%=comment.likes.length%>Likes</a>
+                <%}else{%>
+                <span id="likeCount"><%=comment.likes.length%>Likes</span>
+                <%}%>
+                COMMENTED BY <span><%=comment.user.name%></span>
+            </div> 
+                
 </li>

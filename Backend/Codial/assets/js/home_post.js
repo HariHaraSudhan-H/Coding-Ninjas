@@ -20,7 +20,8 @@
                     $('#postListContainer>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
                     console.log(data.data.post._id);
-                    new postComments(data.data.post._id)
+                    new postComments(data.data.post._id);
+                    new ToggleLike($(' .likeButton',newPost));
                     console.log(data);
                     new Noty({
                         theme: 'relax',
@@ -36,31 +37,44 @@
             });
         });
         // })
-
-
     }
     // method to submit form data using AJAX
     let createPostDOM = function (post) {
-        return $(`<li id="post-${post._id}">
+        return $(
+    `<li id="post-${post._id}" class="posts">
+
+    <div class="postheader">
+        <span class="postUserDetails">
+            <img src="${post.user.avatar}" alt="No image">
+            <span class="postUserName">
+                ${post.user.name}
+            </span>
+        </span>
+
             <span>
                 <a href="/post/deletePost/${post._id}" class="delete-post-button"><i
                         class="fa-sharp fa-solid fa-trash"></i></a>
             </span>
-                ${post.content}
-                    <div>POSTED BY ${post.user.name}
-                    </div>
-                    <div class="post-comments">
-                        <form action="/post/createComment" id="new-comment-form" method="POST">
-                            <textarea name="content" id="content" cols="30" rows="1"
-                                placeholder="Type for comments"></textarea>
-                            <input type="hidden" name="post" value="${post._id}">
-                            <input type="submit" value="POST">
-                        </form>
-                        <h5>Comments</h5>
-                        <ul id="post-comments-${post.id}">
-                        </ul>
-                    </div>
-    </li>`)
+
+    </div>
+    ${post.content}
+        <div class="likes">
+            <a href="/like/toggle?id=${post._id}&type=Post" id="likeButton" class="likeButton" data-likes="0">0 Likes</a>
+        </div>
+        <div class="post-comments">
+            <form action="/post/createComment" id="post-${post._id}-comments-form" method="POST">
+                <textarea name="content" id="content" cols="30" rows="1" placeholder="Type for comments"></textarea>
+                <input type="hidden" name="post" value="${post._id}">
+                <input type="submit" value="POST">
+            </form>
+            <div id="post-comments-${post._id}" class="post-comments">
+                <h5>Comments</h5>
+                <ul>
+                </ul>
+            </div>
+        </div>
+</li>`
+    )
     }
     
 
@@ -75,6 +89,7 @@
                 success: function (data) {
                     console.log(data)
                     $(`#post-${data.data.post_id}`).remove();
+                    
                     new Noty({
                         theme: 'relax',
                         text: "Post Deleted",

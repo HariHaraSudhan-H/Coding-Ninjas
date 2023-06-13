@@ -1,27 +1,45 @@
-<li id="post-<%=post._id%>">
-    <%if((locals.user)&&(locals.user.id===post.user.id)){%>
-        <span>
-            <a href="/post/deletePost/<%=post.id%>" class="delete-post-button"><i
-                    class="fa-sharp fa-solid fa-trash"></i></a>
+<li id="post-<%=post._id%>" class="posts">
+
+    <div class="postheader">
+        <span class="postUserDetails">
+            <img src="<%=post.user.avatar%>" alt="No image">
+            <span class="postUserName">
+                <%=post.user.name%>
+            </span>
         </span>
-        <%}%>
-            <%=post.content%>
-                <div>POSTED BY <%=post.user.name%>
-                </div>
-                <div class="post-comments">
-                    <form action="/post/createComment" id="post-<%=post._id%>-comments-form" method="POST">
-                        <textarea name="content" id="content" cols="30" rows="1"
-                            placeholder="Type for comments"></textarea>
-                        <input type="hidden" name="post" value="<%=post._id%>">
-                        <input type="submit" value="POST">
-                    </form>
-                    <div id="post-comments-<%=post.id%>" class="post-comments">
-                        <h5>Comments</h5>
-                        <ul >
-                            <%for(let comment of post.comments){%>
-                                <%-include('_comment',{comment:comment,post:post})-%>
-                                    <%}%>
-                        </ul>
-                    </div>
-                </div>
+        <%if((locals.user)&&(locals.user.id===post.user.id)){%>
+
+            <span>
+                <a href="/post/deletePost/<%=post.id%>" class="delete-post-button"><i
+                        class="fa-sharp fa-solid fa-trash"></i></a>
+            </span>
+            <%}%>
+
+    </div>
+    <%=post.content%>
+        <!-- <div>POSTED BY 
+                </div> -->
+        <div class="likes">
+            <%if(locals.user){%>
+            <!-- <span id="likeCount"><%=post.likes.count%></span> -->
+            <a href="/like/toggle/?id=<%=post._id%>&type=Post" id="likeButton" class="likeButton" data-likes="<%=post.likes.length%>"><%=post.likes.length%>Likes</a>
+            <%}else{%>
+            <span id="likeCount"><%=post.likes.length%>Likes</span>
+            <%}%>
+        </div>
+        <div class="post-comments">
+            <form action="/post/createComment" id="post-<%=post._id%>-comments-form" method="POST">
+                <textarea name="content" id="content" cols="30" rows="1" placeholder="Type for comments"></textarea>
+                <input type="hidden" name="post" value="<%=post._id%>">
+                <input type="submit" value="POST">
+            </form>
+            <div id="post-comments-<%=post.id%>" class="post-comments">
+                <h5>Comments</h5>
+                <ul>
+                    <%for(let comment of post.comments){%>
+                        <%-include('_comment',{comment:comment,post:post})-%>
+                            <%}%>
+                </ul>
+            </div>
+        </div>
 </li>

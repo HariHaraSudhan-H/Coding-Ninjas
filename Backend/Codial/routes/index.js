@@ -9,7 +9,7 @@ router.get('/',homeController.home);
 //accessing the userController 
 router.use('/users',require('./user'));
 router.use('/post',passport.checkAuthenticated,require('./post'));
-
+router.use('/like',require('./likes'));
 
 router.use('/api',require('./api'));
 console.log('Connected to router');

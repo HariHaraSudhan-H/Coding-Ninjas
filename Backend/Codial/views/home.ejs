@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="/css/home.css">
 <div id="feed">
-    <section id="feed-post">
-        <div id="new-post-form">
-            <h4>POSTS</h4>
-            <form action="/post/create" method="POST" id="post-form">
-                <textarea name="content" id="content" cols="30" rows="3" placeholder="Type here..."></textarea>
-                <input type="submit" value="POST">
-            </form>
-        </div>
-        <%if(locals.user){%>
+    <%if(locals.user){%>
+        <section id="feed-post">
+            <div id="new-post-form">
+                <h4>CREATE POST</h4>
+                <form action="/post/create" method="POST" id="post-form">
+                    <textarea name="content" id="content" cols="30" rows="3" placeholder="Type here..."></textarea>
+                    <input type="submit" value="POST">
+                </form>
+            </div>
             <div id="postListContainer">
                 <ul>
                     <% for(let post of posts){%>
@@ -16,23 +16,36 @@
                             <%}%>
                 </ul>
             </div>
+        </section>
+        <%}else{%>
+            <div id="SignInForExperience">
+                Sign In to Experience the world of Codial!!
+            </div>
             <%}%>
-    </section>
-    <section id="User-friends">
-        <%if(locals.user){%>
-            <h4>Friends</h4>
-            <% for(let friend of allFriends){%>
-                <ul>
-                    <li>
-                        <a href="/users/profile/<%=friend.id%>">
-                            <%=friend.name%>
-                        </a>
-                    </li>
-                </ul>
-                <%}%>
+                <%if(locals.user){%>
+
+                    <section id="User-friends">
+                        <h4>Friends</h4>
+                        <% for(let friend of allFriends){%>
+                            <ul>
+                                <li>
+                                    <a href="/users/profile/<%=friend.id%>">
+                                        <%=friend.name%>
+                                    </a>
+                                </li>
+                            </ul>
+                            <%}%>
+                    </section>
                     <%}%>
 
-    </section>
-    <script src="/js/home_comment.js"></script>
-    <script src="/js/home_post.js"></script>
+                        <script src="/js/home_comment.js"></script>
+                        <script src="/js/home_post.js"></script>
+                        <script src="/js/home_like.js"></script>
+                        <script>
+                            $('.likeButton').each(function(){
+                                let self = this;
+                                let toggleLike = new ToggleLike(self);
+                            })
+                        </script>
+
 </div>

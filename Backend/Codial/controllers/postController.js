@@ -1,5 +1,10 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const commentsMailer = require('../mailers/comments_mailer');
+const commentEmailWorker = require('../worker/comment_email_worker');
+const queue = require('../config/kue');
+const Like = require('../models/like');
+
 module.exports.CreatePost = async function (req, res) {
     try {
         let newPost = await Post.create({
@@ -10,7 +15,7 @@ module.exports.CreatePost = async function (req, res) {
             console.log('inside xhr');
             newPost = await newPost.populate({
                 path: 'user',
-                select: 'name',
+                select: 'name avatar',
             })
             console.log(newPost);
             return res.status(200).json({
@@ -32,7 +37,13 @@ module.exports.CreatePost = async function (req, res) {
 module.exports.DeletePost = async function (req, res) {
     try {
         let postRemove = await Post.findById(req.params.id);
+
+        // for deleting associated likes of post and comments
+        await Like.deleteMany({ likeable: postRemove, onModel: 'Post' });
+        await Like.deleteMany({likeable: {$in: postRemove.comments}});
         postRemove.deleteOne();
+
+        let comments = await Comment.deleteMany({ post: String(req.params.id) });
         if (req.xhr) {
             console.log('inside xhr for deleting post')
             return res.status(200).json({
@@ -42,7 +53,6 @@ module.exports.DeletePost = async function (req, res) {
                 message: "Post deleted"
             })
         }
-        let comments = await Comment.deleteMany({ post: String(req.params.id) });
         req.flash('success', 'Post deleted')
         return res.redirect('back');
     } catch (error) {
@@ -62,15 +72,38 @@ module.exports.CreateComment = async function (req, res) {
 
         post.comments.push(newComment);
         post.save();
+        newComment = await newComment.populate({
+            path: 'user',
+            select: 'name email avatar',
+            // populate:{
+            //     path:'post',
+            //     populate:{
+            //         path:'user',
+            //         select:'name email'
+            //     }
+            // }
+        })
+        newComment = await newComment.populate({
+            path: 'post',
+            populate: {
+                path: 'user',
+                select: 'name email content likes'
+            }
+        })
+        // commentsMailer.newComment(newComment);
+        let job = queue.create('emails', newComment).save(function (err) {
+            if (err) {
+                console.log('error in creating a queue');
+                return;
+            }
+            console.log('job enqueued', job.id);
+        })
         if (req.xhr) {
             console.log('inside xhr for comment');
-            newComment = await newComment.populate({
-                path: 'user',
-                select: 'name'
-            })
+
             return res.status(200).json({
                 data: {
-                    post: newComment
+                    comment: newComment
                 },
                 message: "Comment Created"
             });
@@ -79,7 +112,8 @@ module.exports.CreateComment = async function (req, res) {
         console.log(newComment.user);
         return res.redirect('/');
     } catch (error) {
-        req.flash('error', 'Error in Post creation')
+        req.flash('error', 'Error in Post creation');
+        console.log('error in comment creation', error);
         return;
     }
 };
@@ -89,6 +123,8 @@ module.exports.DeleteComment = async function (req, res) {
         let comment = await Comment.findById(req.params.id);
         if (comment.user == req.user.id) {
             let postID = comment.post;
+            // deleting the associated likes of comment
+            await Like.deleteMany({ likeable: comment._id, onModel: 'Comment' })
             comment.deleteOne();
             let post = Post.findByIdAndUpdate(postID, {
                 $pull: {
@@ -108,6 +144,6 @@ module.exports.DeleteComment = async function (req, res) {
             return res.redirect('/');
         }
     } catch (error) {
-        console.log('Error in deleting comment',error);
+        console.log('Error in deleting comment', error);
     }
 }
