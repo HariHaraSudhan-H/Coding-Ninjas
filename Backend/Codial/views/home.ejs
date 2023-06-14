@@ -22,27 +22,41 @@
                 Sign In to Experience the world of Codial!!
             </div>
             <%}%>
+            <section id="friends">
                 <%if(locals.user){%>
 
                     <section id="User-friends">
                         <h4>Friends</h4>
-                        <% for(let friend of allFriends){%>
+                        <% for(let friend of friends){%>
                             <ul>
                                 <li>
-                                    <a href="/users/profile/<%=friend.id%>">
-                                        <%=friend.name%>
+                                    <a href="/users/profile/<%=friend.to_user.id%>">
+                                        <%=friend.to_user.name%>
                                     </a>
                                 </li>
                             </ul>
                             <%}%>
                     </section>
                     <%}%>
-
+                        <section id="User-friends">
+                            <h4>Users</h4>
+                            <% for(let friend of allFriends){%>
+                                <ul>
+                                    <li>
+                                        <a href="/users/profile/<%=friend.id%>">
+                                            <%=friend.name%>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <%}%>
+                        </section>
+                    </section>
                         <script src="/js/home_comment.js"></script>
                         <script src="/js/home_post.js"></script>
                         <script src="/js/home_like.js"></script>
+                        <script src="/js/friends_toggle.js"></script>
                         <script>
-                            $('.likeButton').each(function(){
+                            $('.likeButton').each(function () {
                                 let self = this;
                                 let toggleLike = new ToggleLike(self);
                             })

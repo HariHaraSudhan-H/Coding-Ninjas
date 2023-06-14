@@ -7,10 +7,17 @@
 #feed-post{
     width: 60%;
 }
+#friends{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+}
 #User-friends{
-    width: 30%;
     border-left: 2px solid rgb(77, 62, 62);
     padding: 0.5rem;
+    height: 50%;
+    overflow-y: scroll;
 }
 #new-post-form{
     margin: 1rem 0;
@@ -63,4 +70,19 @@ padding: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     word-spacing: 2px;
     text-align: center;
+}
+
+/* Scrollbar controls */
+#friends::-webkit-scrollbar {
+    /* background: white; */
+    width: 5px;
+    border-radius: 10px;
+}
+#friends::-webkit-scrollbar-thumb {
+    background: rgb(238, 90, 16); 
+    border-radius: 10px;
+}
+#friends::-webkit-scrollbar-thumb:hover {
+    background: rgb(187, 70, 12); 
+    border-radius: 10px;
 }

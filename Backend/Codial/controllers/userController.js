@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const fs = require('fs');
 const path = require('path');
+const Friendship = require('../models/friendships');
 // controlling the user page for manual Authentication
 // module.exports.userProfile = function (req, res) {
 //     if(req.cookies.user_id){
@@ -20,12 +21,27 @@ const path = require('path');
 //     }   
 // }
 
-module.exports.userProfile = function (req, res) {
+module.exports.userProfile = async function (req, res) {
+    console.log(req.params.id,req.user.id);
+    let isFriend;
+    let friend = await Friendship.findOne({
+        from_user:req.user.id,
+        to_user:req.params.id
+    });
+    console.log(friend);
+    if(friend){
+        isFriend=true;
+    }else{
+        isFriend=false;
+    }
+    console.log(isFriend);
+
     User.findById(req.params.id)
         .then((user) => {
             return res.render('user', {
                 title: "Codial",
-                profileUser: user
+                profileUser: user,
+                isFriend:isFriend
             })
         })
 
