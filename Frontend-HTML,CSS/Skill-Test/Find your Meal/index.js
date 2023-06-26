@@ -1,3 +1,4 @@
+// Importing all HTML Data
 let searchButton = document.getElementById('searchButton');
 let searchText = document.getElementById('searchValue');
 let display = document.getElementById('display');
@@ -6,6 +7,7 @@ let clearButton = document.getElementById('clearText');
 let favouritesList = document.getElementById('favouriteList');
 let home = document.getElementById('Home');
 
+// Event Listeners for operations
 searchText.addEventListener('keyup', search);
 searchButton.addEventListener('click', search);
 randomRecipe.addEventListener('click', randomSelect);
@@ -21,7 +23,7 @@ if (localStorage.getItem("favourites") == null) {
     localStorage.setItem("favourites", JSON.stringify([]));
 }
 
-
+// fetchs data from API
 async function fetchMealFromAPI(url, value) {
     try {
         let data;
@@ -38,6 +40,7 @@ async function fetchMealFromAPI(url, value) {
 
 }
 
+// searches in list as per value enter and displays
 function search(event) {
     event.preventDefault();
     console.log('Hello connected')
@@ -86,6 +89,7 @@ function search(event) {
     })
 }
 
+// Selects a random Meal from list
 function randomSelect(event) {
     event.preventDefault();
     let favourites = JSON.parse(localStorage.getItem('favourites'));
@@ -123,14 +127,16 @@ function randomSelect(event) {
         } else {
             console.log('not found')
         }
+        // document.getElementById('favourites').style.display = 'flex';
         display.innerHTML= html;
     });
 }
 
+// Helps in displaying the favourites
 async function showFavourites(isduplicate) {
     let favourites = JSON.parse(localStorage.getItem('favourites'));
     let url = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
-    let html = '<div id="FavouritesHeading" class="sticky-top">Favourites <button id="closeFav" onclick =" closeFavPage()"><i class="fa-solid fa-xmark"></i></button> </div>'
+    let html = ''
     if (favourites.length == 0) {
         html += `
             <div class="page-wrap d-flex flex-row align-items-center">
@@ -151,7 +157,7 @@ async function showFavourites(isduplicate) {
             await fetchMealFromAPI(url, favourites[meal])
                 .then((data) => {
                     let element = data.meals[0];
-                    html += `<div id="card" class="card mb-3 fav-card">
+                    html += `<div id="card-${meal}" class="card mb-3 fav-card">
                 <img src="${element.strMealThumb}" class="card-img-top meal-fav-image" alt="...">
                 <div class="card-body fav-card-body">
                     <h5 class="card-title">${element.strMeal}</h5>
@@ -165,11 +171,14 @@ async function showFavourites(isduplicate) {
         }
     }
     document.getElementById('app').style.filter = 'blur(4px)';
-    let list = document.getElementById('favourites-list');
-    list.style.display = 'flex';
+    let list = document.getElementById('fav-list');
+    document.getElementById('navbar').classList.remove('sticky-top');
+    document.getElementById('favourites-list').style.display = 'flex';
     list.innerHTML = html;
     // console.log(document.getElementById('favourites-list').innerHTML);
 }
+
+// Helps in show details of a meal
 async function showMealDetails(element_id) {
     closeFavPage();
     let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
@@ -206,6 +215,8 @@ async function showMealDetails(element_id) {
         })
     document.getElementById('app').innerHTML = html;
 }
+
+// Helps in adding and removing favourites
 function addRemoveToFavList(element_id,isFavPage) {
     let favourites = JSON.parse(localStorage.getItem("favourites"));
     console.log(favourites);
@@ -231,12 +242,15 @@ function addRemoveToFavList(element_id,isFavPage) {
     
 }
 
+// helps in closing the fav page
 function closeFavPage(){
     // e.preventDefault();
     document.getElementById('favourites-list').style.display = 'none';
     document.getElementById('app').style.filter = 'blur(0px)';
 
 }
+
+// Checks whether it is in favourites list
 function isInFav(element_id){
     let favourites = JSON.parse(localStorage.getItem("favourites"));
 

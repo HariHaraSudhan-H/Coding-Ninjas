@@ -2,6 +2,12 @@ body {
     background-color: #cad2c5;
 }
 
+a {
+    text-decoration: none;
+    color: #cad2c5;
+}
+
+/* Nav bar Styles */
 header {
     background-color: #d90429;
 }
@@ -18,6 +24,7 @@ header {
     display: none;
 }
 
+/* Heading Styles */
 #heading {
     text-align: center;
     margin: 2rem;
@@ -26,10 +33,11 @@ header {
     font-size: 4rem;
     font-family: 'Domine', serif;
     ;
-    margin-top: 8rem;
+    margin-top: 6rem;
 
 }
 
+/* Search Form Styles */
 #searchForm {
     display: flex;
     justify-content: center;
@@ -45,7 +53,8 @@ header {
 }
 
 #searchButton,
-#clearText,#closeFav {
+#clearText,
+#closeFav {
     border: 0px;
     border-radius: 50%;
     width: 40px;
@@ -73,6 +82,7 @@ header {
     padding: 0.5rem;
 }
 
+/* Meal List Styles */
 #display {
     display: flex;
     flex-wrap: wrap;
@@ -111,13 +121,13 @@ header {
 }
 
 .moreDetails {
-    /* width: 50%; */
     font-size: 0.75rem;
 }
 
 .card-body {
     width: 100%;
 }
+
 
 /* Details Page */
 .mealDetails {
@@ -153,10 +163,7 @@ header {
     color: #d90429;
 }
 
-a {
-    text-decoration: none;
-    color: #cad2c5;
-}
+
 
 .meal-detail-image {
     width: 40%;
@@ -179,23 +186,22 @@ a {
 }
 
 /* Favourites List */
+
 #favourites-list {
     width: 40%;
     display: none;
     flex-direction: column;
     justify-content: center;
-    justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     right: 30%;
     top: 25%;
     /* box-shadow: #5e615c; */
-    /* flex-wrap: wrap; */
-    background-color:#a9b0a4;
-    height: 60vh;
-    overflow-x: hidden;
+    background-color: #a9b0a4;
+    /* height: 600px; */
+    max-height: 60vh;
+    /* overflow-x: hidden; */
     border-radius: 25px;
-    padding: 1rem;
 }
 
 .fav-card {
@@ -203,12 +209,14 @@ a {
     flex-direction: row;
     width: 80%;
     height: 150px;
+    margin: 10px auto;
 }
 
 .meal-fav-image {
     height: 100%;
 }
-#FavouritesHeading{
+
+#FavouritesHeading {
     font-size: 2rem;
     margin: 1rem 0rem;
     color: #d90429;
@@ -216,11 +224,23 @@ a {
     font-family: 'Domine', serif;
     width: 100%;
     margin-top: 0px;
-    padding: 0px;
+    padding: 1rem;
+    padding-bottom: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
-.fav-card:nth-child(1){
-    margin-top: 10rem;
+/* #card-0{
+    margin-top: 80px;
+} */
+#fav-list{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    overflow-y: scroll;
+    width: 100%;
 }
+
 
 /* media queries */
 @media screen and (max-width : 1500px) {
@@ -237,17 +257,20 @@ a {
     #display {
         justify-content: space-around;
     }
+
     #favourites-list {
         width: 50%;
         right: 25%;
     }
 }
+
 @media screen and (max-width : 900px) {
     #favourites-list {
         width: 60%;
         right: 15%;
     }
 }
+
 @media screen and (max-width : 815px) {
     .food-card {
         width: 30%;
@@ -263,6 +286,7 @@ a {
     #searchValue {
         width: 15rem;
     }
+
     #favourites-list {
         width: 80%;
         right: 10%;
@@ -282,25 +306,31 @@ a {
         flex-wrap: wrap;
         margin: 1rem;
     }
-    .fav-moreDetails{
+
+    .fav-moreDetails {
         font-size: 0.5rem;
     }
-    .fav-card{
+
+    .fav-card {
         width: 90%;
     }
 }
+
 @media screen and (max-width:450px) {
-    #favourites-list{
+    #favourites-list {
         width: 90%;
         right: 5%;
     }
-    .fav-card-body{
+
+    .fav-card-body {
         padding-left: 0.25rem;
         padding-right: 0.25rem;
     }
-    .meal-fav-image{
+
+    .meal-fav-image {
         width: 60%;
     }
+
     .food-card {
         width: 70%;
     }
@@ -310,10 +340,12 @@ a {
 ::-webkit-scrollbar {
     width: 0px;
 }
+
 ::-webkit-scrollbar-thumb {
-    background:#3e423c;
+    background: #3e423c;
     border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #858383;
 }
