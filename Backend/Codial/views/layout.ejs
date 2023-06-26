@@ -12,6 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/_post.css">
+    <link rel="stylesheet" href="/css/chat.css">
+
 
     <%-style-%>
 </head>
@@ -24,33 +26,34 @@
             </h5>
             <%}%> -->
         <%- body -%>
-            <%-include('_footer.ejs');-%>
-                <script>
+            <%-include('chat.ejs');-%>
+                <%-include('_footer.ejs');-%>
+                    <script>
                                 <%if (flash.success && flash.success.length > 0) {%>
-                        new Noty({
-                            theme: 'relax',
-                            text: "<%=flash.success%>",
-                            type: 'success',
-                            layout: 'topRight',
-                            timeout: 1500
+                            new Noty({
+                                theme: 'relax',
+                                text: "<%=flash.success%>",
+                                type: 'success',
+                                layout: 'topRight',
+                                timeout: 1500
 
-                        }).show();    
+                            }).show();    
                                 <%}%>
                                 <%if (flash.error && flash.error.length > 0) {%>
-                        new Noty({
-                            theme: 'relax',
-                            text: "<%=flash.error%>",
-                            type: 'error',
-                            layout: 'topRight',
-                            timeout: 1500
+                            new Noty({
+                                theme: 'relax',
+                                text: "<%=flash.error%>",
+                                type: 'error',
+                                layout: 'topRight',
+                                timeout: 1500
 
-                        }).show();    
+                            }).show();    
                                 <%}%>
-                </script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+                    </script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
 
-                <script src="https://kit.fontawesome.com/1c1d231961.js" crossorigin="anonymous"></script>
-                <%-script-%>
+                    <script src="https://kit.fontawesome.com/1c1d231961.js" crossorigin="anonymous"></script>
+                    <%-script-%>
 
 </body>
 

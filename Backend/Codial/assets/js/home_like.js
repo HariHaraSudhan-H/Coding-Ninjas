@@ -16,6 +16,7 @@ class ToggleLike {
                 url: likeButton.attr('href'),
             })
                 .done(function (data) {
+                    let message;
                     let likeCount = Number($(self).attr('data-likes'));
                     console.log('success');
                     // console.log(count);
@@ -24,15 +25,17 @@ class ToggleLike {
                     if (data.data.deleted == true) {
                         likeCount -= 1;
                         likeButton.css('color', 'aliceblue');
+                        message="You have unliked the post";
                     } else {
                         likeCount += 1;
                         likeButton.css('color', 'blue');
+                        message="You have liked the post";
                     }
                     $(self).attr('data-likes', likeCount);
                     $(self).html(`${likeCount} Likes`);
                     new Noty({
                         theme: 'relax',
-                        text: `You have liked a post`,
+                        text: message,
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500

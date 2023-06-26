@@ -22,6 +22,31 @@ const User = require('./models/user');
 const flash = require('connect-flash');
 const customMWare = require('./config/middleware');
 
+const cors = require('cors'); // Added CORS module
+
+app.use(cors({ // Enable CORS middleware
+  origin: 'http://localhost:800',
+  credentials: true
+}));
+
+app.use(function(req, res, next) {
+    console.log('check')
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:800');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
+
+// Chat -- socket.io
+const chatServer = require('http').Server(app);
+const corsOptions = {
+    origin: 'http://localhost:800',
+    methods: ['GET', 'POST'],
+    credentials: true
+  };
+const chatSockets = require('./config/chat').chatSockets(chatServer,corsOptions);
+chatServer.listen(5000);
+console.log('Chat server is listening in port 5000');
+
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
 // make the uploads path available to browser

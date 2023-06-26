@@ -1,0 +1,20 @@
+#chat-view{
+    position:fixed;
+    top: 65%;
+    right: 1px;
+    height: 35%;
+    background-color: black;
+    width: 20%;
+}
+#message-display{
+    height: 75%;
+}
+#chat-header{
+    height: 10%;
+    font-size: 0.9rem;
+    padding: 0.25rem;
+    background-color: gray;
+}
+#chat-form{
+    position: relative;
+}

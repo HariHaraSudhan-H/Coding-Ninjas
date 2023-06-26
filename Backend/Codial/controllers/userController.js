@@ -106,7 +106,7 @@ module.exports.signout = function (req, res) {
             return;
         }
         req.flash('success', 'Logged out successfully');
-        return res.redirect('/');
+        return res.redirect('/users/signin');
     });
 }
 

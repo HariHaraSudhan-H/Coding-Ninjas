@@ -51,7 +51,10 @@
                                 <%}%>
                         </section>
                     </section>
-                        <script src="/js/home_comment.js"></script>
+                        
+
+</div>
+<script src="/js/home_comment.js"></script>
                         <script src="/js/home_post.js"></script>
                         <script src="/js/home_like.js"></script>
                         <script src="/js/friends_toggle.js"></script>
@@ -61,5 +64,10 @@
                                 let toggleLike = new ToggleLike(self);
                             })
                         </script>
-
-</div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+                        <script src="/js/chatEngine.js"></script>
+                        <%if(locals.user){%>
+                            <script>
+                                new chatEngine('chat-view','<%=locals.user.email%>');
+                            </script>
+                        <%}%>
