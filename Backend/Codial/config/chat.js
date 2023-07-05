@@ -14,6 +14,10 @@ module.exports.chatSockets = function(chatServer,corsOptions){
             socket.join(data.chatRoom);
             // notifies the other user about the entry of new user
             io.in(data.chatRoom).emit('user_joined',data);
+        });
+
+        socket.on('sendMsg',function(data){
+            io.in(data.chatRoom).emit('recieve_Message',data);
         })
     })
 }

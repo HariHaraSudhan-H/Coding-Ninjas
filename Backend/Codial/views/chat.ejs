@@ -2,11 +2,18 @@
     <section id="chat-view">
     <div id="chat-header">Chat</div>
     <div id="message-display">
-
+        <ul>
+            <li class="other-message">
+                Other Message
+            </li>
+            <li class="self-message">
+                Self Message
+            </li>
+        </ul>
     </div>
     <form action="" id="chat-form">
-        <input type="text" placeholder="Type your message">
-        <button type="submit">send</button>
+        <input type="text" placeholder="Type your message" id="chat-input">
+        <button type="submit" id="sendMsg">send</button>
     </form>
 </section>
 <%}%>

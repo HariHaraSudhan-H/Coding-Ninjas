@@ -1,7 +1,10 @@
 const express = require('express');
+const env = require('./config/environment');
 const cookieParser = require('cookie-parser');
 const app = express();
 
+// require('./config/viewHelper')(app);
+const logger = require('morgan');
 const path = require('path');
 const port = 800; //production level will be 80
 const hostname = 'codial'
@@ -23,6 +26,7 @@ const flash = require('connect-flash');
 const customMWare = require('./config/middleware');
 
 const cors = require('cors'); // Added CORS module
+const { Logger } = require('sass');
 
 app.use(cors({ // Enable CORS middleware
   origin: 'http://localhost:800',
@@ -48,7 +52,7 @@ chatServer.listen(5000);
 console.log('Chat server is listening in port 5000');
 
 app.use(express.urlencoded());
-app.use(express.static('./assets'));
+app.use(express.static(env.assetPath));
 // make the uploads path available to browser
 app.use('/uploads', express.static(__dirname + '/uploads'))
 //running the cookie parser
@@ -66,7 +70,7 @@ app.set('views', './views');
 // mongo-store is used to store the cookie
 app.use(session({
     name: 'User',
-    secret: 'somethingSecret',
+    secret: env.sessionCookie,
     saveUninitialized: false,
     resave: false,
     cookie: {
@@ -89,6 +93,8 @@ app.use(passport.setAuthenticatedUser);
 
 app.use(flash());
 app.use(customMWare.setFlash);
+
+app.use(logger(env.morgan.mode,env.morgan.options));
 // using express router
 
 app.use('/', require('./routes/index'));

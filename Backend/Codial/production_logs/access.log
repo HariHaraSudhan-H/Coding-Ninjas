@@ -1,0 +1,51 @@
+::1 - - [04/Jul/2023:04:03:56 +0000] "GET / HTTP/1.1" 200 2991 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:03:59 +0000] "GET /users/signin HTTP/1.1" 200 1783 "http://localhost:800/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:03 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:800/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:25 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:800/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:26 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:800/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:28 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:800/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:46 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:49 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:800/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:59 +0000] "POST /users/display-user HTTP/1.1" 302 70 "http://localhost:800/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:04:59 +0000] "GET /users/signin HTTP/1.1" 200 2264 "http://localhost:800/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:05:14 +0000] "POST /users/display-user HTTP/1.1" 302 46 "http://localhost:800/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:05:15 +0000] "GET / HTTP/1.1" 200 4850 "http://localhost:800/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:05:29 +0000] "GET / HTTP/1.1" 200 4375 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:05:34 +0000] "GET /users/profile/64a2cf1cd9562c506ffca5c0 HTTP/1.1" 200 16786 "http://localhost:800/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:05:45 +0000] "POST /users/update/64a2cf1cd9562c506ffca5c0 HTTP/1.1" 302 162 "http://localhost:800/users/profile/64a2cf1cd9562c506ffca5c0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:05:45 +0000] "GET /users/profile/64a2cf1cd9562c506ffca5c0 HTTP/1.1" 200 16756 "http://localhost:800/users/profile/64a2cf1cd9562c506ffca5c0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:06:17 +0000] "POST /users/update/64a2cf1cd9562c506ffca5c0 HTTP/1.1" 302 162 "http://localhost:800/users/profile/64a2cf1cd9562c506ffca5c0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:06:17 +0000] "GET /users/profile/64a2cf1cd9562c506ffca5c0 HTTP/1.1" 200 2604 "http://localhost:800/users/profile/64a2cf1cd9562c506ffca5c0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:06:22 +0000] "GET /users/signout HTTP/1.1" 302 70 "http://localhost:800/users/profile/64a2cf1cd9562c506ffca5c0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:06:22 +0000] "GET /users/signin HTTP/1.1" 200 2260 "http://localhost:800/users/profile/64a2cf1cd9562c506ffca5c0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:07:46 +0000] "GET / HTTP/1.1" 200 2981 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:07:50 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:07:51 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:07:52 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:07:56 +0000] "GET /users/signin HTTP/1.1" 200 1783 "http://localhost:800/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:07:58 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:800/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:09:21 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:10:04 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+[0mGET / [32m200[0m 71.178 ms - 4565[0m
+::1 - - [04/Jul/2023:04:11:30 +0000] "GET / HTTP/1.1" 200 2981 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [04/Jul/2023:04:12:25 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:800/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+::1 - - [04/Jul/2023:04:12:51 +0000] "POST /users/display-user HTTP/1.1" 302 46 "http://localhost:800/users/signin" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+::1 - - [04/Jul/2023:04:12:51 +0000] "GET / HTTP/1.1" 200 4830 "http://localhost:800/users/signin" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+[0mGET / [32m200[0m 93.598 ms - 4565[0m
+[0mGET / [36m304[0m 56.103 ms - -[0m
+[0mGET / [36m304[0m 47.433 ms - -[0m
+[0mGET / [36m304[0m 61.156 ms - -[0m
+[0mGET / [36m304[0m 36.593 ms - -[0m
+[0mGET /users/signin [36m304[0m 4.217 ms - -[0m
+[0mGET /users/auth/google [36m302[0m 3.032 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AZEOvhXaA02ssFwn9dAy68QsKxeuvzqdyS9BYO5-9u0wTm7AasXGXaPif0IzAnyiG2T7WA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent [36m302[0m 454.667 ms - 46[0m
+[0mGET / [32m200[0m 52.845 ms - 14043[0m
+::1 - - [04/Jul/2023:04:24:47 +0000] "GET / HTTP/1.1" 200 2981 "-" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+::1 - - [04/Jul/2023:08:47:28 +0000] "GET /users/profile/64a2cf1cd9562c506ffca5c0 HTTP/1.1" 302 70 "http://localhost:800/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+::1 - - [04/Jul/2023:08:47:28 +0000] "GET /users/signin HTTP/1.1" 500 2348 "http://localhost:800/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+[0mGET /users/signin [32m200[0m 32.189 ms - 1768[0m
+::1 - - [04/Jul/2023:08:48:20 +0000] "GET /users/signin HTTP/1.1" 500 2348 "http://localhost:800/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+[0mGET /users/signin [32m200[0m 11.303 ms - 1768[0m
+[0mGET /users/signin [31m500[0m 38.389 ms - 2432[0m
+[0mGET /users/signin [31m500[0m 15.956 ms - 2400[0m
+[0mGET /users/signin [32m200[0m 9.659 ms - 1789[0m

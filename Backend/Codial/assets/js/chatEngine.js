@@ -24,5 +24,29 @@ class chatEngine{
                 console.log('a user joined',data);
             })
         });
+
+        let sendMsg = document.getElementById('sendMsg');
+        sendMsg.addEventListener('click',function(){
+            let msg = document.getElementById('chat-input').innerText;
+
+            if(msg!=''){
+                self.socket.emit('sendMsg',{
+                    message: msg,
+                    userEmail: self.userEmail,
+                    chatroom: 'Codial'
+                })
+            }
+        })
+
+        self.socket.on('recieve_Message',function(data){
+            console.log('Message Recieved',data.message);
+            let messageType = 'other-message';
+            if(data.userEmail==self.userEmail){
+                messageType = 'self-message';
+            }
+            document.getElementById('message-display').innerHTML+=`<li class="${messageType}">
+            ${data.message} ${data.userEmail}
+        </li>`
+        })
     }
 }
