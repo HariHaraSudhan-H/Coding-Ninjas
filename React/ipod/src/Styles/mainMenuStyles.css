@@ -1,0 +1,12 @@
+.menuItem{
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+ul{
+    padding: 0px;
+    padding-right: 10px;
+}
