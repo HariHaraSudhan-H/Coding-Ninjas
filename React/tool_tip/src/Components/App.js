@@ -13,10 +13,10 @@ function App() {
     document.getElementById(`btn-${newPosition}`).style.backgroundColor =
       "black";
   };
-  
+
   return (
     <div className="App">
-      <h1 className="heading">Tool Tip</h1>
+      <h1 className="heading"><img className='logo' src="https://img.icons8.com/?size=512&id=107145&format=png" alt="icon"/>Tool Tip</h1>
       <Position handleClick={handleClick} />
       <TipButton position={position} />
     </div>

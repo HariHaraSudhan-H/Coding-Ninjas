@@ -20,7 +20,10 @@ code {
   justify-content: space-around;
   font-size: 1rem;
 }
-
+.logo{
+  width: 5rem;
+  height: 5rem;
+}
 .heading{
   font-size: 3rem;
   font-weight: 800;
