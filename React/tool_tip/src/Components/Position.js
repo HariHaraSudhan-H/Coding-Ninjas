@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../index.css";
 const Position = (props) => {
   const { handleClick } = props;
