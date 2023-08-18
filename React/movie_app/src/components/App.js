@@ -1,22 +1,26 @@
+import {connect} from 'react-redux';
 import { data } from "../data";
 import Navbar from "./Navbar";
 import MovieCard from "./MovieCard";
 import React, { useEffect } from "react";
 import { addMovies, changeMode } from "../actions";
+import movies from '../reducers';
+
 class App extends React.Component {
-  movies = this.props.store.getState();
+  movies = this.props.store.getState().movies;
   componentDidMount() {
     const { store } = this.props;
     store.subscribe(() => {
       // console.log("UPDATED");
-      console.log("Updated State", store.getState());
-      this.forceUpdate();
+      // this.forceUpdate();
     });
     store.dispatch(addMovies(data));
+    console.log(store.dispatch(addMovies(data)))
+
   }
 
   isFavourite(movie) {
-    const { favourites } = this.props.store.getState();
+    const { favourites } = this.props.store.getState().movies;
 
     const index = favourites.indexOf(movie);
 
@@ -37,6 +41,9 @@ class App extends React.Component {
 
   render() {
     const  displayMovies = this.movies.isMovieMode ? this.movies.list: this.movies.favourites;
+    // console.log(displayMovies);
+    console.log("Updated State", this.props.store.getState());
+
     return (
       <div className="App">
         <Navbar />
@@ -68,4 +75,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(movies)(App);
