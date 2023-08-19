@@ -15,7 +15,11 @@ class MovieCard extends React.Component {
   };
 
   handleUnFavourite = ()=>{
-    this.props.store.dispatch(removeFavourites(this.props.movie))
+    const newFavourites = this.props.store.getState().movies.favourites.filter(
+      (favourite) => favourite.Title !== this.props.movie.Title
+    )
+    console.log(this.props.movie.Title)
+    this.props.store.dispatch(removeFavourites(newFavourites))
   }
 
   render() {

@@ -5,6 +5,8 @@ import MovieCard from "./MovieCard";
 import React, { useEffect } from "react";
 import { addMovies, changeMode } from "../actions";
 import movies from '../reducers';
+import { StoreContext } from '../index';
+import NavbarWrapper from './Navbar';
 
 class App extends React.Component {
   movies = this.props.store.getState().movies;
@@ -12,7 +14,7 @@ class App extends React.Component {
     const { store } = this.props;
     store.subscribe(() => {
       // console.log("UPDATED");
-      // this.forceUpdate();
+      // this.forceUpdate(); 
     });
     store.dispatch(addMovies(data));
     console.log(store.dispatch(addMovies(data)))
@@ -29,7 +31,6 @@ class App extends React.Component {
 
   handleMovie = () => {
     const { store } = this.props;
-
     store.dispatch(changeMode(true));
   };
 
@@ -40,13 +41,13 @@ class App extends React.Component {
   };
 
   render() {
-    const  displayMovies = this.movies.isMovieMode ? this.movies.list: this.movies.favourites;
+    const {movies,search} = this.props.store.getState();
+    const  displayMovies = movies.isMovieMode ? movies.list: movies.favourites;
     // console.log(displayMovies);
     console.log("Updated State", this.props.store.getState());
-
     return (
       <div className="App">
-        <Navbar />
+        <NavbarWrapper dispatch={this.props.store.dispatch} search={search}/>
         <div className="main">
           <div className="tabs">
             <div className={`tab ${this.movies.isMovieMode? 'active-tabs':''}`} onClick={this.handleMovie}>
@@ -75,4 +76,13 @@ class App extends React.Component {
   }
 }
 
-export default connect(movies)(App);
+class AppWrapper extends React.Component{
+  render(){
+    return (
+      <StoreContext.Consumer>
+        {(store)=><App store={store}/>}
+      </StoreContext.Consumer>
+    )
+  }
+}
+export default connect(movies)(AppWrapper);
