@@ -13,14 +13,14 @@ export const getWeeklog= ()=>{
   const month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
     const day =['Sun','Mon','Tue','Wed','Thur','Fri','Sat'];
     const date = new Date();
-    const first = date.getDate()-date.getDay();
+    const first = date.getDate()-6;
     const firstDate = new Date(date.setDate(first));
     let newWeek = [];
     for(let i=0;i<7;i++){
       const newDate = new Date(date.setDate(firstDate.getDate()+i));
       const newDay = {
         id:i,
-        day: day[i],
+        day: day[newDate.getDay()],
         date: newDate.getDate(),
         month: month[newDate.getMonth()],
         completed: 'No action',

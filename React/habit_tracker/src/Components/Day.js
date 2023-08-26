@@ -20,6 +20,7 @@ const Day = (props) => {
               day.timestamp.getMonth()
             );
           }}
+          title="Mark Done"
         >
           <img
             src="https://img.icons8.com/?size=512&id=21741&format=png"
@@ -39,6 +40,7 @@ const Day = (props) => {
               day.timestamp.getMonth()
             );
           }}
+          title="Mark not done"
         >
           <img
             src="https://img.icons8.com/?size=512&id=OZuepOQd0omj&format=png"
@@ -58,6 +60,7 @@ const Day = (props) => {
               day.timestamp.getMonth()
             );
           }}
+          title="No action"
         >
           <img
             src="https://img.icons8.com/?size=512&id=LHmuCWgibLck&format=png"
