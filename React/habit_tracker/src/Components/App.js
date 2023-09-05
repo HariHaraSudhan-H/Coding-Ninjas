@@ -10,31 +10,34 @@ import styles from "../Styles/navbar.module.css";
 
 class App extends React.Component {
   componentDidMount() {
+    const newHabit = {
+      id: 1,
+      title: "Running",
+      // weeklog: [{ id:0,day: "Sun", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
+      // { id:1,day: "Mon", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
+      // { id:2,day: "Tues", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
+      // { id:3,day: "Wed", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
+      // { id:4,day: "Thur", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
+      // { id:5,day: "Fri", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
+      // { id:6,day: "Sat", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },],
+      // completed: "No action",
+      weeklog: getWeeklog(),
+      daysCompleted: getCompleted(weeklog),
+    }
     this.props.dispatch(
       addHabit([
-        {
-          id: 1,
-          title: "Running",
-          // weeklog: [{ id:0,day: "Sun", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
-          // { id:1,day: "Mon", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
-          // { id:2,day: "Tues", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
-          // { id:3,day: "Wed", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
-          // { id:4,day: "Thur", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
-          // { id:5,day: "Fri", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },
-          // { id:6,day: "Sat", date: firstDate+month[date.getMonth()], completed: "No action",style:{backgroundColor : 'rgb(17, 129, 204)'} },],
-          // completed: "No action",
-          weeklog: getWeeklog(),
-          daysCompleted: getCompleted(weeklog),
-        },
+        newHabit
       ])
     );
+    window.localStorage.setItem('habits',JSON.stringify([newHabit]));
   }
   handleDelete = () => {};
   render() {
     // const style = {
     //   // filter: blur('4px')
     // }
-    const { data, createMode } = this.props;
+    const { createMode } = this.props;
+    const data = JSON.parse(localStorage.getItem('habits'));
     console.log("Updated State", data);
     return (
       <div className="App" style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>

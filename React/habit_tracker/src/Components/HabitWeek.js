@@ -35,7 +35,8 @@ const HabitWeek = (props) => {
       style = daystyles[2];
     }
     // setNewStyle(style);
-    const newHabits = props.data;
+    // const newHabits = props.data;
+    const newHabits = JSON.parse(localStorage.getItem('habits'));
     newHabits.map((newhabit) => {
       if (newhabit.id === habit.id) {
         newhabit.weeklog[dayId].completed = action;
@@ -46,6 +47,7 @@ const HabitWeek = (props) => {
       }
     });
     setAction(false);
+    localStorage.setItem('habits',JSON.stringify(newHabits));
     props.dispatch(updateHabits(newHabits));
     e.stopPropagation();
   };
@@ -60,6 +62,7 @@ const HabitWeek = (props) => {
         newhabit.weeklog[index].style = daystyles[3];
       }
     });
+    localStorage.setItem('habits',JSON.stringify(newHabits));
     props.dispatch(updateHabits(newHabits));
   };
   return (

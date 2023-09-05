@@ -24,6 +24,7 @@ const CreateHabit = (props) => {
     const newHabits = [newHabitData, ...props.data];
     props.dispatch(addHabit(newHabits));
     document.getElementById("main").style.filter = "";
+    localStorage.setItem('habits',JSON.stringify(newHabits));
   };
 
   const handleFormClose = (e) => {
